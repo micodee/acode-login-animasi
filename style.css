@@ -10,5 +10,6 @@
 }
 body {
   background: var(--primary);
+  text-align: center;
   height: 100vh;
 }
