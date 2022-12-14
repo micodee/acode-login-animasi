@@ -13,7 +13,9 @@
         list-style: none;
       }
       :root {
-        --primary: #a51919;
+        --primary: #19d1ff;
+        --primar: #a51919;
+        --abu: #8f8f8f;
       }
       .flex {
         display: flex;
@@ -66,13 +68,98 @@
           transform: rotate(360deg);
         }
       }
-      
+
       .form {
         position: absolute;
         background: #28292d;
         inset: 4px;
         z-index: 3;
         border-radius: 8px;
+        padding: 50px 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .form h2 {
+        color: var(--primary);
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+      }
+      .inputBox {
+        position: relative;
+        width: 260px;
+        margin-top: 35px;
+        text-align: left;
+      }
+      .inputBox input {
+        position: relative;
+        width: 100%;
+        padding: 20px 10px 10px;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #222;
+        font-size: 1rem;
+      }
+      .inputBox span {
+        position: absolute;
+        left: 0;
+        padding: 20px 0px 10px;
+        font-size: 1rem;
+        color: var(--abu);
+        pointer-events: none;
+        letter-spacing: 0.05;
+        transition: 0.5s;
+      }
+      .inputBox input:valid ~ span,
+      .inputBox input:focus ~ span {
+        color: var(--primary);
+        transform: translateY(-30px);
+        font-size: 0.75rem;
+      }
+      .inputBox i {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 4px;
+        transition: 0.5s;
+        pointer-events: none;
+      }
+      .inputBox input:valid ~ i,
+      .inputBox input:focus ~ i {
+        height: 38px;
+        z-index: -10;
+      }
+      
+      .links {
+        display: flex;
+        justify-content: space-between;
+      }
+      .links a {
+        margin: 10px 0;
+        font-size: .75rem;
+        color: var(--abu);
+      }
+      .links a:hover, 
+      .links a:nth-child(2) {
+        color: var(--primary);
+      }
+      input[type="submit"] {
+        border: none;
+        outline: none;
+        padding: 11px 25px;
+        background: var(--primary);
+        width: 40%;
+        margin-top: 10px;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #222;
+        cursor: pointer;
+      }
+      input[type="submit"]:active {
+        opacity: .5;
       }
     </style>
     <title>Login Animate</title>
@@ -80,7 +167,24 @@
   <body>
     <div class="container flex">
       <div class="box">
-        <div class="form"></div>
+        <div class="form">
+          <h2>Sign in</h2>
+          <div class="inputBox">
+            <input type="text" required="required" />
+            <span>Username</span>
+            <i></i>
+          </div>
+          <div class="inputBox">
+            <input type="password" required="required" />
+            <span>Password</span>
+            <i></i>
+          </div>
+          <div class="links">
+            <a href="#">Forgot Password?</a>
+            <a href="#">Signup</a>
+          </div>
+          <input type="submit" value="Login" />
+        </div>
       </div>
     </div>
   </body>
