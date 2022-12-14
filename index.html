@@ -5,28 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <style type="text/css" media="all">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
-}
-:root {
-  --primary: #a51919;
-}
-body {
-  background: var(--primary);
-  text-align: center;
-  height: 100vh;
-}
-
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+      }
+      :root {
+        --primary: #a51919;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body {
+        text-align: center;
+      }
+      .container {
+        height: 100vh;
+        background: #23242a;
+      }
+      .box {
+        position: relative;
+        background: #1c1c1c;
+        width: 350px;
+        height: 420px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .box::before {
+        content: "";
+        top: -50%;
+        left: -50%;
+        position: absolute;
+        background: linear-gradient(0deg, transparent, var(--primary));
+        width: 350px;
+        height: 420px;
+        transform-origin: bottom right;
+        animation: animbor 6s linear infinite;
+      }
+      .box::after {
+        content: "";
+        top: -50%;
+        left: -50%;
+        position: absolute;
+        background: linear-gradient(0deg, transparent, var(--primary));
+        width: 350px;
+        height: 420px;
+        transform-origin: bottom right;
+        animation: animbor 6s linear infinite;
+        animation-delay: -3s;
+      }
+      @keyframes animbor {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      
+      .form {
+        position: absolute;
+        background: #28292d;
+        inset: 4px;
+        z-index: 3;
+        border-radius: 8px;
+      }
     </style>
     <title>Login Animate</title>
   </head>
   <body>
-    <div class="box">
-      <div class="formulir">hello world</div>
+    <div class="container flex">
+      <div class="box">
+        <div class="form"></div>
+      </div>
     </div>
   </body>
 </html>
